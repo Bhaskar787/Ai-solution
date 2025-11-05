@@ -1,0 +1,2 @@
+- [x] Fix mysqli_stmt double close error in edit_article.php by using separate variable for refresh query
+- [ ] Test the fix to ensure no errors
