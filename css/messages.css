@@ -1,0 +1,240 @@
+/* Chat Messenger Style for messages.php */
+
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* Conversations Sidebar */
+#conversations {
+    width: 300px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#conversations h2 {
+    margin: 0;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#conversations ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#conversations li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+#conversations li:hover {
+    background: #f8f9fa;
+}
+
+#conversations li.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#conversations li .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #666;
+}
+
+#conversations li.active .avatar {
+    background: rgba(255,255,255,0.3);
+    color: white;
+}
+
+#conversations li .user-info {
+    flex: 1;
+}
+
+#conversations li .user-name {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+#conversations li .last-message {
+    font-size: 12px;
+    color: #888;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#conversations li.active .last-message {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Chat Area */
+#chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #e5ddd5;
+}
+
+#chat-header {
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+#chat-header .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+#messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text fill="%23f0f0f0" font-size="20" y="50%">💬</text></svg>') repeat;
+    background-size: 50px 50px;
+}
+
+.message {
+    margin-bottom: 15px;
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    clear: both;
+    position: relative;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.admin {
+    background: #dcf8c6;
+    color: #303030;
+    float: right;
+    text-align: right;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.message.user {
+    background: #ffffff;
+    color: #303030;
+    float: left;
+    text-align: left;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.message .timestamp {
+    font-size: 11px;
+    color: #999;
+    margin-top: 5px;
+    display: block;
+}
+
+.message.admin .timestamp {
+    text-align: right;
+}
+
+.message.user .timestamp {
+    text-align: left;
+}
+
+/* Message Form */
+#message-form {
+    display: flex;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    background: #f0f0f0;
+}
+
+#message-input {
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    margin-right: 10px;
+}
+
+#message-input:focus {
+    border-color: #667eea;
+}
+
+#send-button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+#send-button:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+#send-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    #conversations {
+        width: 100%;
+        height: 200px;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    #chat {
+        height: calc(100vh - 200px);
+    }
+    .message {
+        max-width: 85%;
+    }
+}

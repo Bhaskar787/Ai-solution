@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-bg {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.event-card {
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.event-card.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.gallery-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.8), rgba(139, 92, 246, 0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-item .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .overlay-content {
+    opacity: 1;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+}
+
+.event-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-upcoming {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.status-past {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+}
+
+.countdown {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
